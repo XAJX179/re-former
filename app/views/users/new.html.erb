@@ -1,18 +1,24 @@
-<form action="/users/new" method="GET" accept-charset="UTF-8">
-  <label for="user-username">Username</label>
-  <input id="user-username" type="text" name="username" placeholder="user_123">
-  <label for="user-username">Email</label>
-  <input
-    id="user-email"
-    type="email"
-    name="email"
-    placeholder="example@email.com"
-  >
-  <label for="user-password">Password</label>
-  <input
-    id="user-password"
-    type="password"
-    name="password"
-    placeholder="**********"
-  >
-</form>
+<div data-turbo="false">
+  <form action="/users/new" method="GET" accept-charset="UTF-8">
+    <label for="user-username">Username</label>
+
+    <input id="user-username" type="text" name="username" placeholder="user_123">
+    <label for="user-username">Email</label>
+
+    <input
+      id="user-email"
+      type="email"
+      name="email"
+      placeholder="example@email.com"
+    >
+    <label for="user-password">Password</label>
+
+    <input
+      id="user-password"
+      type="password"
+      name="password"
+      placeholder="**********"
+    >
+    <input type="submit" value="Submit">
+  </form>
+</div>
