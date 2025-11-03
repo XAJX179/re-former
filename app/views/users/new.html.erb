@@ -1,36 +1,23 @@
-<div data-turbo="false">
-  <form action="/users" method="POST" accept-charset="UTF-8">
-    <input
-      type="hidden"
-      name="authenticity_token"
-      value="<%= form_authenticity_token %>"
-    >
-    <label for="user-username">Username</label>
-    <input
-      id="user-username"
-      type="text"
-      name="user[username]"
-      placeholder="user_123"
-      value="<%= @user.username if @user%>"
-    >
-    <label for="user-email">Email</label>
+<%# disabling turbo like this still adds a hidden field with auth automatically. %>
+<%= form_tag("/users", method: :post, data: {turbo: false}) do %>
+  <%= hidden_field_tag "authenticity_token", form_authenticity_token %>
+  <%= label_tag "user-username", "Username" %>
+  <%= text_field_tag "username",
+  @user ? @user.username : nil,
+  id: "user-username",
+  placeholder: "user_123" %>
 
-    <input
-      id="user-email"
-      type="email"
-      name="user[email]"
-      placeholder="example@email.com"
-      value="<%= @user.email if @user%>"
-    >
-    <label for="user-password">Password</label>
+  <%= label_tag "user-email", "Email" %>
+  <%= email_field_tag "email",
+  @user ? @user.email : nil,
+  id: "user-email",
+  placeholder: "example@email.com" %>
 
-    <input
-      id="user-password"
-      type="password"
-      name="user[password]"
-      placeholder="**********"
-      value="<%= @user.password if @user %>"
-    >
-    <input type="submit" value="Submit">
-  </form>
-</div>
+  <%= label_tag "user-password", "Password" %>
+  <%= password_field_tag "password",
+  @user ? @user.password : nil,
+  id: "user-password",
+  placeholder: "*********" %>
+
+  <%= submit_tag "Submit" %>
+<% end %>
