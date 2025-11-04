@@ -1,21 +1,21 @@
-<%= form_tag("/users", method: :post) do %>
-  <%= label_tag "user-username", "Username" %>
-  <%= text_field_tag "username",
-  @user ? @user.username : nil,
-  id: "user-username",
-  placeholder: "user_123" %>
+<%= form_with model: @user do |form| %>
+  <%= form.label "username", "Your username here: " %>
+  <%= form.text_field "username",
+                  id: "user_username",
+                  placeholder: "user_123",
+                  value: "xajx" %>
 
-  <%= label_tag "user-email", "Email" %>
-  <%= email_field_tag "email",
-  @user ? @user.email : nil,
-  id: "user-email",
-  placeholder: "example@email.com" %>
+  <%= form.label "email", "Your email here: " %>
+  <%= form.email_field "email",
+                   id: "user_email",
+                   placeholder: "example@gmail.com",
+                   value: "your@email.com" %>
 
-  <%= label_tag "user-password", "Password" %>
-  <%= password_field_tag "password",
-  @user ? @user.password : nil,
-  id: "user-password",
-  placeholder: "*********" %>
+  <%= form.label "password", "Your password here: " %>
+  <%= form.password_field "password",
+                      id: "user_password",
+                      placeholder: "**********",
+                      value: "rainbowpaperrootevil" %>
 
-  <%= submit_tag "Submit" %>
+  <%= form.submit "Submit" %>
 <% end %>
