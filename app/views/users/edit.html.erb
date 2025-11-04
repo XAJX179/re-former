@@ -1,3 +1,14 @@
+<% if !@user.errors.empty? %>
+  <p>Errors:</p>
+  <ul>
+
+    <% @user.errors.full_messages.each do |error| %>
+      <li>
+        <%= error %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_with model: @user do |form| %>
   <%= form.label "username", "Your username here: " %>
   <%= form.text_field "username", id: "user_username", placeholder: "user_123" %>
