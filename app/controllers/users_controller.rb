@@ -12,6 +12,12 @@ class UsersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+  def edit
+    @user = User.find(params[:id])
+  end
+  def update
+    @user = User.find(params[:id]).update(user_params)
+  end
 
   private
 
